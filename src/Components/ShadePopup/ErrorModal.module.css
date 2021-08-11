@@ -1,0 +1,43 @@
+.title {
+    font-color: white;
+    background-color: blueviolet;
+    text-align: center;
+    margin: auto;
+    padding: 0.5rem;
+    color:white;
+}
+
+.message {
+    text-align: center;
+    font-weight: bold;
+}
+
+.modalBtn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:1rem;
+    border-radius: 5px;
+    padding:0.5rem ;
+
+
+}
+
+.modal {
+    position: fixed;
+    top: 30vh;
+    left: 10%;
+    width: 80%;
+    z-index: 100;
+    overflow: hidden;
+}
+
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+}
