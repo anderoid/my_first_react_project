@@ -4,12 +4,11 @@ import Card from '../UI/Card';
 
 const ErrorModal = (props) => {
 
-    console.log(`props here are ${props.}`)
+    console.log(`props here are ${props.setter(false)}`)
 
 
     const clickHandler = () => {
         return props.setter(true);
-
     }
 
     return (
