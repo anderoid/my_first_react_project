@@ -43,7 +43,7 @@ const ShadePopup = () => {
 
     return (
         <div>
-            {error && <ErrorModal title={error.title} message={error.message} setter={errorSetter(flag)}/>}
+            {error && <ErrorModal title={error.title} message={error.message} setter={errorSetter}/>}
 
 
             <Card>
