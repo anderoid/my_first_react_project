@@ -1,11 +1,12 @@
 import Modal from "react-bootstrap/Modal";
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "../UI/Card";
+import {data} from '../UI/data'
 
 const Modeler = (props) => {
     const [isOpen, setIsOpen] = React.useState(false);
-    const [people, setPeople] = useState(props.dataer);
+    const [people, setPeople] = useState(data);
     const [name, setName] = useState('');
     const [id, setId] = useState('');
 
@@ -26,25 +27,56 @@ const Modeler = (props) => {
         setId(e.target.value);
     }
 
-    const saver = () => {
-        // setName()
-        console.log(people);
+    const Saver = () => {
 
-        const dataSaver = {
+        const dataBoomer = {
             ...people,
-            id: id,
-            name: name
+            id:id,
+            name:name
         }
 
-        setPeople([...people, {id: id, name: name}]);
+        props.onSaveData(dataBoomer)
+
+
+
+
+        // setName()
+        // console.log(people);
+        //
+        // const dataSaver = () => {
+        //     return [...people, {id: id, name: name}]
+        // }
+        //
+        // console.log(`Name = ${name}`);
+        // console.log(`ID = ${id}`)
+        // console.log("DtaaSaver here = ")
+        // console.log(dataSaver())
+        //
+        //
+        // console.log('people before updation in Modeller = ')
+        // console.log(people)
+        //
+        //
+        // setPeople(prevPeople => ([...prevPeople, {id: id, name: name}]))
+        // useEffect(() => {
+        //     setPeople(prevPeople => ([...prevPeople, {id: id, name: name}]))
+
+        // setPeople(dataSaver()) ;
+        // });
+
+        // setPeople([...people, {id: id, name: name}]);
 
         // {
         //     people.map(person => <ul><Card>{person.name}</Card></ul>)
         // }
 
-        props.onSaveData(people);
 
-        console.log(people);
+        // console.log("People just after updation in saver");
+        // console.log(people)
+        //
+        // props.onSaveData(people);
+
+        // console.log(people);
 
 
         hideModal();
@@ -69,7 +101,7 @@ const Modeler = (props) => {
                 </Modal.Body>
                 <Modal.Footer>
                     <button type="button" onClick={hideModal} className="btn btn-danger">Cancel</button>
-                    <button type="button" className="btn btn-success" onClick={saver}>Save</button>
+                    <button type="button" className="btn btn-success" onClick={Saver}>Save</button>
                 </Modal.Footer>
             </Modal>
         </>
