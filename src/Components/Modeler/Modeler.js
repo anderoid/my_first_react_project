@@ -29,11 +29,10 @@ const Modeler = (props) => {
 
     const Saver = () => {
 
-        const dataBoomer = {
-            ...people,
-            id:id,
-            name:name
-        }
+        const dataBoomer = [
+            {id:id,
+            name:name}
+        ]
 
         props.onSaveData(dataBoomer)
 
