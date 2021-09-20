@@ -4,6 +4,10 @@ import {data} from './Components/UI/data'
 import Adder from "./Components/Adder";
 import Modeler from "./Components/Modeler/Modeler";
 import {React, useEffect, useReducer, useRef, useState} from "react";
+import todoReducer from './Components/Reducers/ListChangeReducer'
+import {useAccordionButton} from 'react-bootstrap/AccordionButton';
+import {Accordion, Table} from "react-bootstrap";
+import AccordiansGeneric from "./Utils/AccordiansGeneric";
 
 
 function App() {
@@ -37,35 +41,60 @@ function App() {
     const [state, dispatch] = useReducer(todoReducer, data);
 
     const saveOnDataHandler = (enteredData) => {
-        dated = {
-            ...enteredData
-            // , id: Math.random().toString()
-
-        };
         reference.current = enteredData
-
-
-        // Update the document title using the browser API
-        // setPeople(prevPeople => ([...prevPeople, ...enteredData]))
-
-
-        console.log(`People on APP saveonDataHandler = `)
-        console.log(dated);
-
         dispatch({type: 'saveData'})
-
     }
+
+
 
 
     return (
         <div>
+
+
+
+
             {/*<Modeler dataer={people}/>*/}
+            <Card><h1 className={'text-center text-success'}>Please Enter your Marks</h1></Card>
             <Modeler onSaveData={saveOnDataHandler}/>
 
             {console.log("The state is ")}
             {console.log(state)}
 
-            {state.map(person => <ul key={person.id}><Card>{person.name}</Card></ul>)}
+            {state.map(
+                person =>
+
+
+                    <ul key={person.id}>
+
+                        <Card>
+
+
+                            <AccordiansGeneric name={person.name}
+                                               id={person.id}
+                                               sem1Grade={person.sem1}
+                                               sem2Grade={person.sem2}
+
+                            >
+
+
+                            </AccordiansGeneric>
+
+                            {/*{`Name: ${person.name}`}*/}
+                            {/*{'                          |||                    '}*/}
+                            {/*{`Student ID: ${person.id}`}*/}
+                            {/*{'                          |||                    '}*/}
+                            {/*{`Semester 1 Grade : ${person.sem1}`}*/}
+                            {/*{'                          |||                    '}*/}
+                            {/*{`Semester 1 Grade : ${person.sem2}`}*/}
+                            {/*{'                          |||                    '}*/}
+                            {/*{`Semester Average Grade : ${(Number(person.sem1) + Number(person.sem2))/2}`}*/}
+
+
+                        </Card>
+
+                    </ul>
+            )}
 
 
             {/*<Lister dataer={people}/>*/}
