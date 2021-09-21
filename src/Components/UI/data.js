@@ -1,3 +1,6 @@
+// export const data = [
+//
+// ];
 export const data = [
     { id: 1, name: 'john', sem1:3.4, sem2:3.45 },
     { id: 2, name: 'peter', sem1:2.4, sem2:2.45 },

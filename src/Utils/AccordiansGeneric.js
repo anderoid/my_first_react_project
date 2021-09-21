@@ -7,15 +7,15 @@ const AccordiansGeneric = (props) => {
     const boomer = ['Subject Name', 'Marks']
     const subjData = [
         {
-            subjectName: 'Mathematics',
-            grade: 3.26
+            subjectName: props.subj1,
+            grade: props.subj1Marks
         },
         {
-            subjectName: 'Physiology',
-            grade: 3.42
+            subjectName: props.subj2,
+            grade: props.subj2Marks
         }, {
-            subjectName: 'Social',
-            grade: 2.9
+            subjectName: props.subj3,
+            grade: props.subj3Marks
         }
     ];
 
@@ -25,7 +25,7 @@ const AccordiansGeneric = (props) => {
                 <Accordion.Header>{props.name}</Accordion.Header>
                 <Accordion.Body>
 
-                    <Table striped bordered hover>
+                    <Table striped bordered hover variant={'dark'}>
                         <thead>
                         <tr>
 
@@ -45,9 +45,11 @@ const AccordiansGeneric = (props) => {
                             </td>
 
                         </tr>)}
+
+
                         </tbody>
                     </Table>
-                    {`Name: ${props.name}`}
+                    {`\nName: ${props.name}`}
                     {'                          |||                    '}
                     {`Student ID: ${props.id}`}
                     {'                          |||                    '}

@@ -46,12 +46,8 @@ function App() {
     }
 
 
-
-
     return (
         <div>
-
-
 
 
             {/*<Modeler dataer={people}/>*/}
@@ -64,6 +60,8 @@ function App() {
             {state.map(
                 person =>
 
+                    person.name!==''?
+
 
                     <ul key={person.id}>
 
@@ -72,8 +70,12 @@ function App() {
 
                             <AccordiansGeneric name={person.name}
                                                id={person.id}
-                                               sem1Grade={person.sem1}
-                                               sem2Grade={person.sem2}
+                                               subj1={person.subj1}
+                                               subj1Marks={person.subj1Marks}
+                                               subj2={person.subj2}
+                                               subj2Marks={person.subj2Marks}
+                                               subj3={person.subj3}
+                                               subj3Marks={person.subj3Marks}
 
                             >
 
@@ -93,7 +95,7 @@ function App() {
 
                         </Card>
 
-                    </ul>
+                    </ul>:''
             )}
 
 
